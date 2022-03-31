@@ -11,6 +11,11 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/:pid',
+    name: 'viewProduct',
+    component: () => import ('../views/ProductView.vue')
+  },
+  {
     path: '/my-account/',
     name: 'myAccount',
     component: () => import('../views/MyAccount.vue')
