@@ -154,7 +154,9 @@ export default {
   methods: {
     route(item) {
       console.log(item);
-      this.$router.push({ path: "/" + item + "/" });
+      const nailSelection = this.nails.find(x=> x.pid === item)
+      console.log( nailSelection)
+      this.$router.push({ name:"viewProduct" , params: {pid: item , data: nailSelection}});
     },
     getNails() {
       const db = getFirestore();
