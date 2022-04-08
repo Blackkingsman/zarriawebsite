@@ -11,22 +11,22 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/:pid',
+    path: '/products/:pid',
     name: 'viewProduct',
     component: () => import ('../views/ProductView.vue')
   },
   {
-    path: '/my-account/',
+    path: '/my-account',
     name: 'myAccount',
     component: () => import('../views/MyAccount.vue')
   },
   {
-    path: '/cart/',
+    path: '/cart',
     name: 'myCart',
     component: () => import('../views/CartView.vue')
   },
   {
-    path: '/shop/',
+    path: '/shop',
     name: 'myShop',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

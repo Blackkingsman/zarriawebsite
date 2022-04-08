@@ -13,19 +13,19 @@
           <v-icon size='40px' :color=accentColor >mdi-magnify</v-icon>
         </v-btn>
         <v-btn
-          to="/my-account/"
+          :to="{name: 'myAccount' }"
           text
         >
           <span class="mr-2"></span>
           <v-icon size='40px' :color=accentColor>mdi-account</v-icon>
         </v-btn>
         <v-btn
-          to="/cart/"
+          :to="{name: 'myCart' }"
           text
         >
           <span class="mr-2"></span>
           <v-badge left :color=accentColor>
-              <span slot="badge">{{cartCount}}</span>
+              <span slot="badge">{{cart.length}}</span>
             <v-icon size='40px' :color=accentColor>mdi-cart </v-icon>  
           </v-badge>
         </v-btn>
@@ -37,8 +37,11 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   name: "NavbarView",
+  computed: mapGetters(['cart']),
+  
   data () {
       return{
             colors: [
@@ -60,7 +63,9 @@ export default {
       };
       
   },
+ 
   methods:{
+  
       update() {
           this.$router.push('/')
       }    

@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <v-main>
-       <v-router to="/"></v-router>
       <router-view/>
     </v-main>
   </v-app>

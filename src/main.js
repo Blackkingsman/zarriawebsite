@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify'
 import {initializeApp} from 'firebase/app'
+import store from './store/vuex'
 import {getFirestore} from 'firebase/firestore'
 
 Vue.config.productionTip = false
@@ -19,10 +20,13 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 
-
 new Vue({
   router,
   vuetify,
+  store,
+  beforeCreate() {
+    this.$store.commit('initialiseStore')
+  },
   data () {
     return {
       db: getFirestore()
