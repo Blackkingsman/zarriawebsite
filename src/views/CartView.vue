@@ -159,7 +159,7 @@
                 </h4></v-row
               >
               <v-row style="padding: 10px" justify="center"
-                ><v-btn style="background-color: black; color: white"
+                ><v-btn to="/checkout" style="background-color: black; color: white"
                   >CHECKOUT</v-btn
                 ></v-row
               >
@@ -197,7 +197,7 @@ export default {
       ],
       rules: [(v) => v <= 99 || "Maximum order is 99 units"],
       cartItems: this.cart,
-      radioGroup: 0,
+      radioGroup: "9.99",
       cartTotal: 0,
     };
   },

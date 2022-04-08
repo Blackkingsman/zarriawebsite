@@ -26,6 +26,11 @@ const routes = [
     component: () => import('../views/CartView.vue')
   },
   {
+    path: '/checkout',
+    name: 'checkOut',
+    component: () => import ('../views/CheckoutView.vue')
+  },
+  {
     path: '/shop',
     name: 'myShop',
     // route level code-splitting
