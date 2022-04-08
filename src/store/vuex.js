@@ -36,14 +36,17 @@ const store = new Vuex.Store({
       })
     },
     addToCart(state, item) {
+      let query = state.cart.find(x => x.uniquekey === item.uniquekey)
       // check to see if item is already in cart if so then update quantity
-      if (typeof state.cart.find(x => x.uniquekey === item.uniquekey) ==='undefined'){
+      if (typeof query === 'undefined') {
         //item is not in cart so push the item to cart
-      state.cart.push(item)
+        state.cart.push(item)
       } else {
         //update the quantity by adding the amount from user
-        state.cart.find(x => x.uniquekey === item.uniquekey).quantity+= item.quantity
+       query.quantity + item.quantity <= 99? query.quantity += item.quantity : query.quantity = 99
       }
+      //reset the cart subtotal
+      state.cartSubTotal = 0;
       state.cart.forEach(item => {
         state.cartSubTotal += item.price * item.quantity
       })
