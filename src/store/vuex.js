@@ -5,10 +5,14 @@ const store = new Vuex.Store({
   state: {
     cart: [
     ],
+    billingInfo: {},
     cartSubTotal: 0,
   },
   mutations: {
-
+    setBillingInfo(state, billingInfo){
+      state.billingInfo = billingInfo;
+    
+    },
     initialiseStore(state) {
       if (localStorage.getItem('store')) {
         this.replaceState(
@@ -56,6 +60,9 @@ const store = new Vuex.Store({
     cart(state) {
       console.log(state.cart)
       return state.cart
+    },
+    getBillingInfo(state){
+      return state.billingInfo
     },
     cartSubTotal(state) {
       console.log(state.cartSubTotal.toFixed(2))
